@@ -24,10 +24,13 @@ const uploads = require('./routes/uploads');
 require('./config/passport')(passport);
 
 // Connecting to MongoDB...
-const mongoose = require('mongoose');
-mongoose.connect("mongodb+srv://schl-info-system:school@cluster0.morsc.mongodb.net/schl-info-system?retryWrites=true&w=majority", {
-    useNewUrlParser: true
-}).then(() => console.log('Connected to MongoDB Server...')).catch(err => console.error('Error occured connecting to MongoDB...', err));
+var uri = "mongodb+srv://schl-info-system:school@cluster0.morsc.mongodb.net/schl-info-system?retryWrites=true&w=majority"
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
+var database = mongoose.connection;
+database.on("error", console.error.bind(console, "Mongoose Connection Error"));
+database.once('open', () => {
+  console.log("MongoDB daatabase connection established successfully");
+});
 
 
 
@@ -134,8 +137,5 @@ app.use('/fee-management', fees);
 app.use('/api', api);
 app.use('/uploads', uploads);
 
-// Listening on Port:5000
-//const port = process.env.port || 3000;
-const port = process.env.NODE_ENV || 5000;
-app.set('port', port);
-app.listen(port, () => console.log(`Server started on port : ${port}`));
+
+module.exports = app;

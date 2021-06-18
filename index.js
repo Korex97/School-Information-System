@@ -9,6 +9,7 @@ const path = require('path');
 const fs = require('fs');
 const breadcrumb = require('express-url-breadcrumb');
 const multer = require('multer');
+const mongoose = require("mongoose");
 
 const app = express();
 

@@ -13,12 +13,12 @@ const multer = require('multer');
 const app = express();
 
 // Load Routes
-// const students = require('./routes/students');
-// const users = require('./routes/users');
+const students = require('./routes/students');
+const users = require('./routes/users');
 const courses = require('./routes/courses');
 const fees = require('./routes/fee-mgmt');
 const api = require('./routes/api');
-// const uploads = require('./routes/uploads');
+const uploads = require('./routes/uploads');
 
 // Passport Config.
 require('./config/passport')(passport);
@@ -127,12 +127,12 @@ app.get('/errors', (req, res) => {
 });
 
 // Use Routes
-// app.use('/students', students);
-// app.use('/users', users);
+app.use('/students', students);
+app.use('/users', users);
 app.use('/courses', courses);
 app.use('/fee-management', fees);
 app.use('/api', api);
-// app.use('/uploads', uploads);
+app.use('/uploads', uploads);
 
 // Listening on Port:5000
 //const port = process.env.port || 3000;

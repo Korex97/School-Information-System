@@ -26,7 +26,9 @@ require('./config/passport')(passport);
 
 // Connecting to MongoDB...
 var uri = "mongodb+srv://schl-info-system:school@cluster0.morsc.mongodb.net/schl-info-system?retryWrites=true&w=majority"
-mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
+    .then( () => console.log("Database Connected"))
+    .catch( err => console.log(err));
 var database = mongoose.connection;
 database.on("error", console.error.bind(console, "Mongoose Connection Error"));
 database.once('open', () => {

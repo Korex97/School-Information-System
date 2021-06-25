@@ -11,6 +11,9 @@ const breadcrumb = require('express-url-breadcrumb');
 const multer = require('multer');
 const mongoose = require("mongoose");
 
+const port = process.env.PORT || 4000;
+require('dotenv').config();
+
 const app = express();
 
 // Load Routes
@@ -154,7 +157,8 @@ app.use(function(req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error');
-  });
+    });
+
+app.listen(port, () => console.info(`Listening to port ${port}`));
 
 
-module.exports = app;

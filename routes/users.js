@@ -210,16 +210,18 @@ router.get('/requests', [ensureAuthenticated, isAdmin, readAccessControl], async
     })
 
     if (requests) {
-        res.render('users/requests', {
-            title: 'Requests',
-            breadcrumbs: true,
-            requests: requests
-        });
+        // res.render('users/requests', {
+        //     title: 'Requests',
+        //     breadcrumbs: true,
+        //     requests: requests
+        // });
+        res.json(requests);
     } else {
-        res.render('users/requests', {
-            title: 'Requests',
-            breadcrumbs: true
-        });
+        // res.render('users/requests', {
+        //     title: 'Requests',
+        //     breadcrumbs: true
+        // });
+        res.json(requests);
     }
 });
 

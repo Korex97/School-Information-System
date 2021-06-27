@@ -215,7 +215,6 @@ router.get('/requests', [ensureAuthenticated, isAdmin, readAccessControl], async
             breadcrumbs: true,
             requests: requests
         });
-        // res.json(requests);
     }
 });
 

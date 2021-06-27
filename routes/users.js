@@ -207,7 +207,7 @@ router.delete('/:id', [ensureAuthenticated, isAdmin, deleteAccessControl], async
 router.get('/requests', [ensureAuthenticated, isAdmin, readAccessControl], async (req, res) => {
     const requests = await User.find({
         request: false
-    });
+    })
 
     if (requests) {
         res.render('users/requests', {

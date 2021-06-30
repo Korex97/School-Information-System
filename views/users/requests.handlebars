@@ -1,10 +1,7 @@
 <div class="container-fluid" style="width:70%;">
-
-    {{#ifEq requests.length 0}}
-        <div>You have no pending requests</div>
-    {{else}}
-        <div>You have {{requests.length}} pending requets</div>
-    {{/ifEq}}
+    {{#each requests}}
+        <div>{{name}}</div>
+    {{/each}}
     {{!-- {{requests.length}}
     {{#each requests}}
     <div class="card card-request mb-3">

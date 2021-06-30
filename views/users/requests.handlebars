@@ -1,16 +1,10 @@
 <div class="container-fluid" style="width:70%;">
-    <script>
-        Handlebars.registerHelper('if_eq', function(a, b, opts) {
-            if ( a === b){
-                return opts.fn(this);
-            }
-        });
-    </script>
-    {{#if_eq requests.length 0}}
+
+    {{#ifEq requests.length 0}}
         <div>You have no pending requests</div>
     {{else}}
         <div>You have {{requests.length}} pending requets</div>
-    {{/if_eq}}
+    {{/ifEq}}
     {{!-- {{requests.length}}
     {{#each requests}}
     <div class="card card-request mb-3">

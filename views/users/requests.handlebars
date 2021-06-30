@@ -2,7 +2,7 @@
     {{#if requests}}
         <div>You have {{requests.length}} pending requests</div>
         {{#requests}}
-            <div>{{name}}</div>
+            <div>{{.}}</div>
         {{/requests}}
     {{else}}
         <div>You have no pending requests</div>

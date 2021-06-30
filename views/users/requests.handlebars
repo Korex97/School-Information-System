@@ -1,4 +1,11 @@
 <div class="container-fluid" style="width:70%;">
+    <script>
+        Handlebars.registerHelper('if_eq', function(a, b, opts) {
+            if ( a === b){
+                return opts.fn(this);
+            }
+        });
+    </script>
     {{#if_eq requests.length 0}}
         <div>You have no pending requests</div>
     {{else}}
@@ -61,11 +68,3 @@
     {{/unless}}
 
 </div>
-
-<script>
-    Handlebars.registerHelper('if_eq', function(a, b, opts) {
-        if ( a === b){
-            return opts.fn(this);
-        }
-    });
-</script>

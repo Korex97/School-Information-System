@@ -1,9 +1,9 @@
 <div class="container-fluid" style="width:70%;">
     {{#if requests}}
         <div>You have {{requests.length}} pending requests</div>
-        {{#requests}}
-            <div>{{.}}</div>
-        {{/requests}}
+        {{#each requests}}
+            <div>{{name}}</div>
+        {{/each}}
     {{else}}
         <div>You have no pending requests</div>
     {{/if}}

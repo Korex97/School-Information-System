@@ -1,5 +1,9 @@
 <div class="container-fluid" style="width:70%;">
-    <div>{{requests[0].email}}</div>
+    {{#if requests}}
+        <div>You have {{requests.length}} pending requests</div>
+    {{else}}
+        <div>You have no pending requests</div>
+    {{/if}}
     {{!-- {{requests.length}}
     {{#each requests}}
     <div class="card card-request mb-3">

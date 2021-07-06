@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="col-md-8">
                             <h5 class="mt-0">User Registration Requests</h5>
-                            There are {{pendingRequests}} user registration requests pending.
+                            There are <%= pendingRequests %> user registration requests pending.
                         </div>
                         <div class="col-md-4">
                             <a href="/users/requests">
@@ -36,28 +36,28 @@
             </tr>
         </thead>
         <tbody>
-            {{#each users}}
-            <tr>
-                <td>{{name}}</td>
-                <td>{{email}}</td>
-                <td>{{role}}</td>
-                <td>{{isAdmin}}</td>
-                <td>Create: {{privileges.create}}, Read: {{privileges.read}}, Update: {{privileges.update}}, Delete:
-                    {{privileges.delete}}</td>
-                <td>{{created}}</td>
-                <td class="dropdown-hide">
-                    <div class="dropdown dropdown-hide" id="customized-dropdown">
-                        <button class="btn btn-secondary" type="button" data-toggle="dropdown">
-                            <i class="fa fa-ellipsis-v"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right animated fadeIn">
-                            <a class="dropdown-item select-item" href="#" onclick="findUser('{{id}}');">Edit</a>
-                            <a id="delete-item" class="dropdown-item" onclick="deleteItem('/users/{{id}}');" href="#">Delete</a>
+            <% for (let i = 0; i < users.length; i++) { %>
+                <tr>
+                    <td><%= users[i].name %></td>
+                    <td><%= users[i].email %></td>
+                    <td><%= users[i].role %></td>
+                    <td><%= users[i].isAdmin %></td>
+                    <td>Create: <%= users[i].privileges.create %>, Read: <%= users[i].privileges.read %>, Update: <%= users[i].privileges.update %> , Delete:
+                        <%= users[i].privileges.delete %></td>
+                    <td><%= users[i].created %></td>
+                    <td class="dropdown-hide">
+                        <div class="dropdown dropdown-hide" id="customized-dropdown">
+                            <button class="btn btn-secondary" type="button" data-toggle="dropdown">
+                                <i class="fa fa-ellipsis-v"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right animated fadeIn">
+                                <a class="dropdown-item select-item" href="" onclick="findUser('<%= users[i]._id %>');">Edit</a>
+                                <a id="delete-item" class="dropdown-item" onclick="deleteItem('/users/<%= users[i]._id %>');" href="#">Delete</a>
+                            </div>
                         </div>
-                    </div>
-                </td>
-            </tr>
-            {{/each}}
+                    </td>
+                </tr>
+            <% } %>
         </tbody>
     </table>
 
@@ -160,35 +160,35 @@
     </ul>
 
     <!-- Checking UPDATE & DELETE Access Privileges -->
+    <% if (user.privileges.update == false) { %>
+        <script>
+            let updateItems = document.getElementsByClassName('select-item'), count;
+    
+            for (count = 0; count < updateItems.length; count++) {
+                updateItems[count].style.display = 'none';
+            }
+        </script>
+    <% } %>
 
-    {{#unless user.privileges.update}}
-    <script>
-        let updateItems = document.getElementsByClassName('select-item'), count;
 
-        for (count = 0; count < updateItems.length; count++) {
-            updateItems[count].style.display = 'none';
-        }
-    </script>
-    {{/unless}}
+    <% if (user.privileges.delete == false) { %>
+        <script>
+            let items = document.getElementsByClassName("delete-item"), i;
+    
+            for (i = 0; i < items.length; i++) {
+                items[i].style.display = 'none';
+            }
+        </script>
+    <% } %>
 
-    {{#unless user.privileges.delete}}
-    <script>
-        let items = document.getElementsByClassName("delete-item"), i;
-
-        for (i = 0; i < items.length; i++) {
-            items[i].style.display = 'none';
-        }
-    </script>
-    {{/unless}}
-
-    {{#if_eq user.privileges.update false user.privileges.delete false}}
-    <script>
-        let x = document.getElementsByClassName('dropdown-hide'), j;
-
-        for (j = 0; j < x.length; j++) {
-            x[j].style.display = 'none';
-        }
-    </script>
-    {{/if_eq}}
+    <% if (user.privileges.update == false || user.privileges.delete == false) { %>
+        <script>
+            let x = document.getElementsByClassName('dropdown-hide'), j;
+    
+            for (j = 0; j < x.length; j++) {
+                x[j].style.display = 'none';
+            }
+        </script>
+    <% } %>
 
 </div>

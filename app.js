@@ -10,6 +10,8 @@ const fs = require('fs');
 const breadcrumb = require('express-url-breadcrumb');
 const multer = require('multer');
 const mongoose = require("mongoose");
+const expressLayouts = require("express-ejs-layouts");
+const ejs = require("ejs");
 
 const port = process.env.PORT || 4000;
 require('dotenv').config();
@@ -55,17 +57,19 @@ const {
 
 // Express Handlebars Middleware.
 
-app.engine('handlebars', exphbs({
-    defaultLayout: 'main',
-    helpers: {
-        paginate: paginate,
-        select: select,
-        if_eq: if_eq,
-        select_course: select_course
-    }
-}));
+// app.engine('handlebars', exphbs({
+//     defaultLayout: 'main',
+//     helpers: {
+//         paginate: paginate,
+//         select: select,
+//         if_eq: if_eq,
+//         select_course: select_course
+//     }
+// }));
 
-app.set('view engine', 'handlebars');
+app.use(expressLayouts);
+app.set("layout", "./layouts/main")
+app.set('view engine', 'ejs');
 
 // Static Folder
 app.use(express.static(path.join(__dirname, 'public')));

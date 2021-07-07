@@ -57,19 +57,19 @@ const {
 
 // Express Handlebars Middleware.
 
-// app.engine('handlebars', exphbs({
-//     defaultLayout: 'main',
-//     helpers: {
-//         paginate: paginate,
-//         select: select,
-//         if_eq: if_eq,
-//         select_course: select_course
-//     }
-// }));
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main',
+    helpers: {
+        paginate: paginate,
+        select: select,
+        if_eq: if_eq,
+        select_course: select_course
+    }
+}));
 
-app.use(expressLayouts);
-app.set("layout", "./layouts/main")
-app.set('view engine', 'ejs');
+// app.use(expressLayouts);
+// app.set("layout", "./layouts/main")
+// app.set('view engine', 'ejs');
 
 // Static Folder
 app.use(express.static(path.join(__dirname, 'public')));

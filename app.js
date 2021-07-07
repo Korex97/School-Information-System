@@ -66,6 +66,7 @@ app.engine('handlebars', exphbs({
         select_course: select_course
     }
 }));
+app.set('view engine', 'handlebars');
 
 // app.use(expressLayouts);
 // app.set("layout", "./layouts/main")

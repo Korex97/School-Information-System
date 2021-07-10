@@ -15,9 +15,10 @@
         </thead>
         <tbody>
             {{#each course}}
+            {{log this}}
             <tr>
-                <td style="padding-left:20px;">{{courseName}}</td>
-                <td>{{departmentName}}</td>
+                <td style="padding-left:20px;">{{this.courseName}}</td>
+                {{!-- <td>{{departmentName}}</td>
                 <td>{{courseDuration}}</td>
                 <td>{{startDate}}</td>
                 <td>{{endDate}}</td>
@@ -39,7 +40,7 @@
                             </li>
                         </div>
                     </div>
-                </td>
+                </td> --}}
             </tr>
             {{/each}}
         </tbody>

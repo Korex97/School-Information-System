@@ -47,12 +47,12 @@ const studentSchema = new mongoose.Schema({
     Category: {
         type: String,
         required: true,
-        enum: ['General', 'OBC', 'SC', 'ST', 'Others']
+        enum: ['General', 'Others']
     },
     Religion: {
         type: String,
         required: true,
-        enum: ['Muslim', 'Hindu', 'Sikh', 'Christian', 'Jain', 'Others']
+        enum: ['Muslim', 'Christian', 'Others']
     },
     FathersName: {
         type: String,
@@ -119,7 +119,7 @@ const studentSchema = new mongoose.Schema({
     Class: {
         type: String,
         required: true,
-        enum: ['1st Semester', '2nd Semester', '3rd Semester', '4th Semester', '5th Semester', '6th Semester', '7th Semester', '8th Semester']
+        enum: ['1st Semester', '2nd Semester']
     },
     Section: {
         type: String,

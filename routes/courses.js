@@ -32,7 +32,7 @@ router.get('/getCourse/:deptName', async (req, res) => {
         res.status(400).send(error.details[0].message);
 });
 
-router.get('/', [ensureAuthenticated, isAdmin, readAccessControl], async (req, res) => {
+router.get('/', [ensureAuthenticated, readAccessControl], async (req, res) => {
 
     const perPage = 8;
     const page = req.query.page || 1;
@@ -66,7 +66,7 @@ router.get('/', [ensureAuthenticated, isAdmin, readAccessControl], async (req, r
     }
 });
 
-router.get('/add', [ensureAuthenticated, isAdmin, createAccessControl], async (req, res) => {
+router.get('/add', [ensureAuthenticated, createAccessControl], async (req, res) => {
     const dept = await Department.find();
 
     if (dept) {
@@ -78,7 +78,7 @@ router.get('/add', [ensureAuthenticated, isAdmin, createAccessControl], async (r
     }
 });
 
-router.post('/add', [ensureAuthenticated, isAdmin, createAccessControl], async (req, res) => {
+router.post('/add', [ensureAuthenticated, createAccessControl], async (req, res) => {
     let errors = [];
     const dept = await Department.find();
 
@@ -136,7 +136,7 @@ router.post('/add', [ensureAuthenticated, isAdmin, createAccessControl], async (
     }
 });
 
-router.get('/edit', [ensureAuthenticated, isAdmin, updateAccessControl], async (req, res) => {
+router.get('/edit', [ensureAuthenticated,  updateAccessControl], async (req, res) => {
     const dept = await Department.find();
     const course = await Course.findOne({
         _id: req.query.id
@@ -152,7 +152,7 @@ router.get('/edit', [ensureAuthenticated, isAdmin, updateAccessControl], async (
     }
 });
 
-router.put('/:id', [ensureAuthenticated, isAdmin, updateAccessControl], async (req, res) => {
+router.put('/:id', [ensureAuthenticated, updateAccessControl], async (req, res) => {
     let startDate = moment(req.body.startDate).format('LL');
     let endDate = moment(req.body.endDate).format('LL');
 

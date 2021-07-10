@@ -26,7 +26,7 @@ const {
 } = require('../helpers/auth');
 
 // Students Home Route
-router.get('/', [ensureAuthenticated, isAdmin, readAccessControl], async (req, res) => {
+router.get('/', [ensureAuthenticated, readAccessControl], async (req, res) => {
 
     const perPage = 7;
     const page = req.query.page || 1;
@@ -66,7 +66,7 @@ router.get('/', [ensureAuthenticated, isAdmin, readAccessControl], async (req, r
 
 
 // Student Detail's Route
-router.get('/details', [ensureAuthenticated, isAdmin, readAccessControl], async (req, res) => {
+router.get('/details', [ensureAuthenticated, readAccessControl], async (req, res) => {
     const student = await Student.findOne({
         _id: req.query.id
     });
@@ -83,7 +83,7 @@ router.get('/details', [ensureAuthenticated, isAdmin, readAccessControl], async 
 });
 
 // Search Student Route.
-router.post('/', [ensureAuthenticated, isAdmin], async (req, res) => {
+router.post('/', [ensureAuthenticated, readAccessControl], async (req, res) => {
     let key = req.body.searchInput;
 
     const student = await Student.find({
@@ -104,7 +104,7 @@ router.post('/', [ensureAuthenticated, isAdmin], async (req, res) => {
 });
 
 // Add Student Form Route
-router.get('/add', [ensureAuthenticated, isAdmin, createAccessControl], async (req, res) => {
+router.get('/add', [ensureAuthenticated, createAccessControl], async (req, res) => {
     const dept = await Department.find();
 
     if (dept) {
@@ -215,7 +215,7 @@ router.post('/add', [ensureAuthenticated, isAdmin, createAccessControl], async (
 });
 
 // Student Edit Form
-router.get('/edit', [ensureAuthenticated, isAdmin, updateAccessControl], async (req, res) => {
+router.get('/edit', [ensureAuthenticated, updateAccessControl], async (req, res) => {
     const student = await Student.findOne({
         _id: req.query.id
     });
@@ -233,7 +233,7 @@ router.get('/edit', [ensureAuthenticated, isAdmin, updateAccessControl], async (
 });
 
 // Student Update Route
-router.put('/:id', [ensureAuthenticated, isAdmin, updateAccessControl], async (req, res) => {
+router.put('/:id', [ensureAuthenticated, updateAccessControl], async (req, res) => {
 
     const {
         error
@@ -284,7 +284,7 @@ router.put('/:id', [ensureAuthenticated, isAdmin, updateAccessControl], async (r
     }
 });
 
-router.delete('/:id', [ensureAuthenticated, isAdmin, deleteAccessControl], async (req, res) => {
+router.delete('/:id', [ensureAuthenticated, deleteAccessControl], async (req, res) => {
     const result = await Student.remove({
         _id: req.params.id
     });
@@ -321,7 +321,7 @@ router.delete('/multiple/:id', async (req, res) => {
     //console.log(str);
 });
 
-router.delete('/details/:id', [ensureAuthenticated, isAdmin, deleteAccessControl], async (req, res) => {
+router.delete('/details/:id', [ensureAuthenticated, deleteAccessControl], async (req, res) => {
     const result = await Student.remove({
         _id: req.params.id
     });

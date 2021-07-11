@@ -112,10 +112,6 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    BranchName: {
-        type: String,
-        required: true
-    },
     Class: {
         type: String,
         required: true,
@@ -124,7 +120,7 @@ const studentSchema = new mongoose.Schema({
     Section: {
         type: String,
         required: true,
-        enum: ['A', 'B', 'C']
+        enum: ['A', 'B']
     },
     Session: {
         type: String,
@@ -160,7 +156,6 @@ function validateStudent(student) {
         PostalCode: Joi.number().required(),
         Country: Joi.string().required(),
         CourseName: Joi.string().required().label(' Course Name '),
-        BranchName: Joi.string().required().label(' Branch Name '),
         ClassAdmittedTo: Joi.string().required(),
         Section: Joi.string().required(),
         Session: Joi.string().required(),

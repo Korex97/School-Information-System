@@ -1,15 +1,8 @@
 <div class="container-fluid" style="width:70%;">
     {{#if requests}}
         <div>You have {{requests.length}} pending requests</div>
-        {{#requests}}
-            <div>{{this.name}}</div>
-        {{/requests}}
-    {{else}}
-        <div>You have no pending requests</div>
-    {{/if}}
-    {{!-- {{requests.length}}
-    {{#each requests}}
-    <div class="card card-request mb-3">
+       {{#each requests}}
+        <div class="card card-request mb-3">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-10">
@@ -37,9 +30,10 @@
             </div>
         </div>
     </div>
+    {{/each}}
     {{else}}
-    <p>No pending requests.</p>
-    {{/each}} --}}
+        <div>You have no pending requests</div>
+    {{/if}}
 
     <!-- Checking UPDATE & DELETE Access Privileges -->
 

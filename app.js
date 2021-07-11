@@ -13,6 +13,8 @@ const mongoose = require("mongoose");
 const expressLayouts = require("express-ejs-layouts");
 const ejs = require("ejs");
 
+const {allowInsecurePrototypeAccess} = require("@handlebars/allow-prototype-access");
+
 const port = process.env.PORT || 4000;
 require('dotenv').config();
 
@@ -59,6 +61,7 @@ const {
 
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
+    handlebars: allowInsecurePrototypeAccess(exphbs),
     helpers: {
         paginate: paginate,
         select: select,

@@ -8,9 +8,11 @@
             <label for="departmentName">Department</label>
             <select name="departmentName" class="form-control custom-select" required>
                 {{#select course.departmentName}}
-                {{#each dept}}
                 <option value="{{dname}}">{{dname}}</option>
-                {{/each}}
+                <option value="Computer Science">Computer Science</option>
+                <option value="Cyber Security">Cyber Security</option>
+                <option value="Information Technology">Information Technology</option>   
+                <option value="System Security">System Security</option>
                 {{/select}}
 
             </select>

@@ -51,9 +51,6 @@
                         {{#select student.Category}}
                         <option value="">Choose...</option>
                         <option value="General">General</option>
-                        <option value="SC">SC</option>
-                        <option value="ST">ST</option>
-                        <option value="OBC">OBC</option>
                         <option value="Others">Others</option>
                         {{/select}}
                     </select>
@@ -78,10 +75,7 @@
                         {{#select student.Religion}}
                         <option value="">Choose...</option>
                         <option value="Muslim">Muslim</option>
-                        <option value="Hindu">Hindu</option>
-                        <option value="Sikh">Sikh</option>
                         <option value="Christian">Christian</option>
-                        <option value="Jain">Jain</option>
                         <option value="Others">Others</option>
                         {{/select}}
                     </select>
@@ -188,10 +182,10 @@
                     <label for="">Course Name ( <span>*</span> )</label>
                     <select name="CourseName" id="chooseDept" class="form-control custom-select" onchange="getCourses(this.value);">
                         <option value="">Choose...</option>
-                        {{#select_course dept student.CourseName}}
-
-                        {{/select_course}}
-
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Cyber Security">Cyber Security</option>
+                        <option value="Information Technology">Information Technology</option>   
+                        <option value="System Security">System Security</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">
@@ -210,12 +204,6 @@
                         <option value="">Choose...</option>
                         <option value="1st Semester">1st Semester</option>
                         <option value="2nd Semester">2nd Semester</option>
-                        <option value="3rd Semester">3rd Semester</option>
-                        <option value="4th Semester">4th Semester</option>
-                        <option value="5th Semester">5th Semester</option>
-                        <option value="6th Semester">6th Semester</option>
-                        <option value="7th Semester">7th Semester</option>
-                        <option value="8th Semester">8th Semester</option>
                         {{/select}}
                     </select>
                 </div>
@@ -227,7 +215,6 @@
                         <option value="">Choose...</option>
                         <option value="A">A</option>
                         <option value="B">B</option>
-                        <option value="C">C</option>
                         {{/select}}
                     </select>
                 </div>

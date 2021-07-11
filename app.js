@@ -1,4 +1,5 @@
 const express = require('express');
+_handlebars = require('handlebars');
 const exphbs = require('express-handlebars');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
@@ -61,7 +62,7 @@ const {
 
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
-    handlebars: allowInsecurePrototypeAccess(exphbs),
+    handlebars: allowInsecurePrototypeAccess(_handlebars),
     helpers: {
         paginate: paginate,
         select: select,

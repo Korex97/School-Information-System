@@ -35,9 +35,9 @@
         <p>Student details</p>
         <div class="form-row">
             <div class="form-group col-md-3">
-                <label for="">Class Roll Number ( <span>*</span> )</label>
+                <label for="">Matric Number ( <span>*</span> )</label>
                 <input type="text" name="studentRoll" id="studentRoll" value="{{body.studentRoll}}" onchange="getStudentInfo(this.value);"
-                    class="form-control" placeholder="Enter Class Roll Number">
+                    class="form-control" placeholder="Enter Matric Number">
             </div>
             <div class="form-group col-md-3">
                 <label for="">Name ( <span>*</span> )</label>
@@ -52,9 +52,9 @@
             </div>
 
             <div class="form-group col-md-3">
-                <label for="">Section ( <span>*</span> )</label>
+                <label for="">Session ( <span>*</span> )</label>
                 <input type="text" name="studentSection" id="studentSection" value="{{body.studentSection}}" class="form-control"
-                    placeholder="Enter Student's Section">
+                    placeholder="Enter Class Session">
             </div>
         </div>
 
@@ -93,7 +93,7 @@
             <div class="form-group col-md-3">
                 <label for="">Due date</label>
                 <input type="text" id="datepicker" name="dueDate" value="{{body.dueDate}}" class="form-control"
-                    placeholder="Enter amount paid">
+                    placeholder="Enter due Date">
             </div>
             <div class="form-group col-md-3">
                 <label for="">Late Submission Fine ( &#8377 Per Day )</label>

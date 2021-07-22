@@ -40,12 +40,11 @@ router.get('/details', [ensureAuthenticated, readAccessControl], async (req, res
     });
 
     if (course) {
-        // res.render('students/details', {
-        //     title: 'Details',
-        //     breadcrumbs: true,
-        //     student: student
-        // });
-        res.json(course);
+        res.render('courses/details', {
+            title: ' Course Details',
+            breadcrumbs: true,
+            course: course
+        });
     } else {
         req.flash('error_msg', 'No records found...');
     }

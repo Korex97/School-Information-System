@@ -255,6 +255,26 @@ router.delete('/requests/:id', [ensureAuthenticated, isAdmin, deleteAccessContro
 });
 
 
+//User Details
+
+router.get('/details', [ensureAuthenticated, readAccessControl], async (req, res) => {
+    const user = await User.findOne({
+        _id: req.query.id
+    });
+
+    if (user) {
+        // res.render('users/details', {
+        //     title: 'User Details',
+        //     breadcrumbs: true,
+        //     user: user
+        // });
+        res.json(user);
+    } else {
+        req.flash('error_msg', 'No records found...');
+    }
+});
+
+
 // Edit User Account.
 
 router.get('/edit/:id', [ensureAuthenticated, isAdmin, updateAccessControl], async (req, res) => {

@@ -304,7 +304,7 @@ router.put('/edit/:id', [ensureAuthenticated, isAdmin, updateAccessControl], asy
             email: req.body.email,
             role: req.body.role,
             isAdmin: req.body.isAdmin,
-            Gennder: req.body.Gennder,
+            Gender: req.body.Gender,
             Religion: req.body.Religion,
             PhoneNumber: req.body.PhoneNumber,
             'privileges.read': req.body.read,

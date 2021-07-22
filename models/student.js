@@ -120,11 +120,14 @@ const studentSchema = new mongoose.Schema({
     Section: {
         type: String,
         required: true,
-        enum: ['A', 'B']
+        enum: ['100', '200', '300', '400', '500']
     },
     Session: {
         type: String,
         required: true
+    },
+    CGPA: {
+        type: String
     },
     StudentId: studentIdSchema
 });

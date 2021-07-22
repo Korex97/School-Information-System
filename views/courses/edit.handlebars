@@ -5,16 +5,19 @@
         <h4>Edit Course</h4>
         <hr>
         <div class="form-group">
-            <label for="departmentName">Department</label>
+            <label for="departmentName">Faculty</label>
             <select name="departmentName" class="form-control custom-select" required>
                 {{#select course.departmentName}}
                 <option value="{{dname}}">{{dname}}</option>
-                <option value="Computer Science">Computer Science</option>
-                <option value="Cyber Security">Cyber Security</option>
-                <option value="Information Technology">Information Technology</option>   
-                <option value="System Security">System Security</option>
+                <option value="School of Computing">School of Computing</option>
+                <option value="School of Agriculture & Agricultural Technology">School of Agriculture & Agricultural Technology</option>
+                <option value="School of Sciences">School of Sciences</option>
+                <option value="School of Engineering and Engineering Technology">School of Engineering and Engineering Technology</option>   
+                <option value="School of Enviromental Technology">School of Enviromental Technology</option>
+                <option value="School of Mineral and Earth Sciences">School of Mineral and Earth Sciences</option>
+                <option value="School Of Management Technology">School Of Management Technology</option>
+                <option value="School of Health and Health Technology">School of Health and Health Technology</option>
                 {{/select}}
-
             </select>
         </div>
         <div class="form-row">

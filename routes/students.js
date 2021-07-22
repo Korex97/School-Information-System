@@ -72,12 +72,11 @@ router.get('/details', [ensureAuthenticated, readAccessControl], async (req, res
     });
 
     if (student) {
-        // res.render('students/details', {
-        //     title: 'Details',
-        //     breadcrumbs: true,
-        //     student: student
-        // });
-        res.json(student);
+        res.render('students/details', {
+            title: 'Details',
+            breadcrumbs: true,
+            student: student
+        });
     } else {
         req.flash('error_msg', 'No records found...');
     }

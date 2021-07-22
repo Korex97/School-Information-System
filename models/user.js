@@ -14,6 +14,17 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    PhoneNumber: {
+        type: String,
+    },
+    Gender: {
+        type: String,
+        enum: ['Male', 'Female']
+    },
+    Religion: {
+        type: String,
+        enum: ['Muslim', 'Christian', 'Others']
+    },
     role: {
         type: String,
         required: true,
@@ -60,6 +71,10 @@ function validateUser(user) {
         password: Joi.string().required().label(' Password '),
         password2: Joi.string().required().label(' Confirm Password '),
         role: Joi.string().required().label(' User Role '),
+        Gender: Joi.string(),
+        PhoneNumber: Joi.number().integer().positive(),
+        Religion: Joi.string(),
+
         //isAdmin: Joi.boolean().required().label(' isAdmin ')
     }
 

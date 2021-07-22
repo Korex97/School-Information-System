@@ -127,7 +127,8 @@ const studentSchema = new mongoose.Schema({
         required: true
     },
     CGPA: {
-        type: String
+        type: String,
+        required: true
     },
     StudentId: studentIdSchema
 });
@@ -162,6 +163,7 @@ function validateStudent(student) {
         ClassAdmittedTo: Joi.string().required(),
         Section: Joi.string().required(),
         Session: Joi.string().required(),
+        CGPA: Joi.string().required(),
         ClassRollNo: Joi.string().required(),
         RegistrationNo: Joi.string().empty(''),
         _method: Joi.string().empty('')

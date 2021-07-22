@@ -168,6 +168,7 @@ router.post('/add', [ensureAuthenticated, isAdmin, createAccessControl], async (
             Class: req.body.ClassAdmittedTo,
             Section: req.body.Section,
             Session: req.body.Session,
+            CGPA: "0",
             StudentId: new StudentId({
                 ClassRollNo: req.body.ClassRollNo,
                 RegistrationNo: req.body.RegistrationNo

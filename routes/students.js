@@ -273,7 +273,7 @@ router.put('/:id', [ensureAuthenticated, updateAccessControl], async (req, res) 
                 Class: req.body.ClassAdmittedTo,
                 Section: req.body.Section,
                 Session: req.body.Session,
-                CGPA: req.body.CGPA,
+                CGPA: "0",
                 'StudentId.ClassRollNo': req.body.ClassRollNo,
                 'StudentId.RegistrationNo': req.body.RegistrationNo
             }

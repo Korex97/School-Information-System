@@ -168,7 +168,7 @@ router.post('/add', [ensureAuthenticated, isAdmin, createAccessControl], async (
             Class: req.body.ClassAdmittedTo,
             Section: req.body.Section,
             Session: req.body.Session,
-            CGPA: req.body.CGPA,
+            CGPA: "0",
             StudentId: new StudentId({
                 ClassRollNo: req.body.ClassRollNo,
                 RegistrationNo: req.body.RegistrationNo
@@ -273,7 +273,7 @@ router.put('/:id', [ensureAuthenticated, updateAccessControl], async (req, res) 
                 Class: req.body.ClassAdmittedTo,
                 Section: req.body.Section,
                 Session: req.body.Session,
-                CGPA: "0",
+                CGPA: req.body.CGPA,
                 'StudentId.ClassRollNo': req.body.ClassRollNo,
                 'StudentId.RegistrationNo': req.body.RegistrationNo
             }

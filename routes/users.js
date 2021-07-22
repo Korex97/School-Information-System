@@ -315,8 +315,9 @@ router.put('/edit/:id', [ensureAuthenticated, isAdmin, updateAccessControl], asy
     });
 
     if (result) {
-        req.flash('success_msg', 'User account updated successfully.');
-        res.json('/users');
+        // req.flash('success_msg', 'User account updated successfully.');
+        // res.json('/users');
+        res.json(result);
     } else {
         req.flash('error_msg', 'Error creating user.');
         res.status(500).json('/users');

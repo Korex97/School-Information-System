@@ -32,6 +32,25 @@ router.get('/getCourse/:deptName', async (req, res) => {
         res.status(400).send(error.details[0].message);
 });
 
+//Details Route
+
+router.get('/details', [ensureAuthenticated, readAccessControl], async (req, res) => {
+    const course = await Course.findOne({
+        _id: req.query.id
+    });
+
+    if (course) {
+        // res.render('students/details', {
+        //     title: 'Details',
+        //     breadcrumbs: true,
+        //     student: student
+        // });
+        res.json(course);
+    } else {
+        req.flash('error_msg', 'No records found...');
+    }
+});
+
 router.get('/', [ensureAuthenticated, readAccessControl], async (req, res) => {
 
     const perPage = 8;
